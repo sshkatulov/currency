@@ -22,4 +22,10 @@ describe('check currency.com', () => {
     it('logo is present', () => {
         expect(PlatformPage.isLogoPresent()).toBe(true);
     });
+    
+    it('logo redirects to home page', () => {
+        PlatformPage.clickLogo();
+        const url = browser.getUrl().replace(/https?:\/\//, "").replace(/\//, "");
+        expect(url).toBe('exchange.currency.com');
+    });
 });

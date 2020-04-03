@@ -1,4 +1,5 @@
 import Page from '../../framework/elements/page';
+import { switchToWindowByPattern } from '../../framework/browser';
 
 class HomePage extends Page {
     
@@ -34,6 +35,11 @@ class HomePage extends Page {
 
     isLogoPresent() {
         return this.logoLbl.isDisplayed();
+    }
+
+    clickLogo() {
+        this.logoLbl.click();
+        switchToWindowByPattern(/The world.+/);
     }
 
 }
