@@ -18,4 +18,8 @@ describe('check currency.com', () => {
     it('available balance is correct', () => {
         expect(PlatformPage.getAvailableBalance()).toBe(TestUser.Balance);
     });
+    
+    it('logo is present', () => {
+        expect(PlatformPage.isLogoPresent()).toBe(true);
+    });
 });

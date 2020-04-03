@@ -8,6 +8,7 @@ class HomePage extends Page {
     get switchToDemoBtn() { return $('//*[*[text()="Switch to Demo"]]'); }
     get switchToLiveBtn() { return $('//*[text()="Switch to live"]'); }
     get availableBalanceLbl() { return $('//*[*[*[text()="Available"]]]//*[contains(@class,"price")]'); }
+    get logoLbl() { return $('//*[@logo]/img'); }
 
     open() {
         super.open('trading/platform/');
@@ -29,6 +30,10 @@ class HomePage extends Page {
 
     getAvailableBalance() {
         return this.availableBalanceLbl.getText().replace(/\r?\n|\r/, "");
+    }
+
+    isLogoPresent() {
+        return this.logoLbl.isDisplayed();
     }
 
 }
