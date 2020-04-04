@@ -1,12 +1,10 @@
+/* global browser */
 export default class Page {
-    constructor() {
-    }
+  open(path) {
+    browser.url(path);
+  }
 
-    open(path) {
-        browser.url(path)
-    }
-
-    waitForLoaded(pageLocator) {
-        browser.waitUntil(() => pageLocator.isDisplayed());
-    }
+  waitForLoaded(pageLocator) {
+    browser.waitUntil(() => pageLocator.isDisplayed());
+  }
 }

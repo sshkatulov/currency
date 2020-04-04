@@ -1,47 +1,52 @@
+/* global browser, $ */
 import Page from '../../framework/elements/page';
 import { switchToWindowByPattern } from '../../framework/browser';
 
 class HomePage extends Page {
-    
-    get pageLocator() { return $('//*[@main]'); }
-    get accountBtn() { return $('//*[@account]'); }
-    get accountTypeLbl() { return $('//*[@class="account"]'); }
-    get switchToDemoBtn() { return $('//*[*[text()="Switch to Demo"]]'); }
-    get switchToLiveBtn() { return $('//*[text()="Switch to live"]'); }
-    get availableBalanceLbl() { return $('//*[*[*[text()="Available"]]]//*[contains(@class,"price")]'); }
-    get logoLbl() { return $('//*[@logo]/img'); }
+  get pageLocator() { return $('//*[@main]'); }
 
-    open() {
-        super.open('trading/platform/');
-    }
+  get accountBtn() { return $('//*[@account]'); }
 
-    waitForLoaded() {
-        super.waitForLoaded(this.pageLocator);
-    }
+  get accountTypeLbl() { return $('//*[@class="account"]'); }
 
-    switchToDemo() {
-        this.accountBtn.click();
-        this.switchToDemoBtn.click();
-        browser.waitUntil(() => this.accountTypeLbl.getText() === 'Demo');
-    }
+  get switchToDemoBtn() { return $('//*[*[text()="Switch to Demo"]]'); }
 
-    isSwitchToLiveVisible() {
-        return this.switchToLiveBtn.isDisplayed();
-    }
+  get switchToLiveBtn() { return $('//*[text()="Switch to live"]'); }
 
-    getAvailableBalance() {
-        return this.availableBalanceLbl.getText().replace(/\r?\n|\r/, "");
-    }
+  get availableBalanceLbl() { return $('//*[*[*[text()="Available"]]]//*[contains(@class,"price")]'); }
 
-    isLogoPresent() {
-        return this.logoLbl.isDisplayed();
-    }
+  get logoLbl() { return $('//*[@logo]/img'); }
 
-    clickLogo() {
-        this.logoLbl.click();
-        switchToWindowByPattern(/The world.+/);
-    }
+  open() {
+    super.open('trading/platform/');
+  }
 
+  waitForLoaded() {
+    super.waitForLoaded(this.pageLocator);
+  }
+
+  switchToDemo() {
+    this.accountBtn.click();
+    this.switchToDemoBtn.click();
+    browser.waitUntil(() => this.accountTypeLbl.getText() === 'Demo');
+  }
+
+  isSwitchToLiveVisible() {
+    return this.switchToLiveBtn.isDisplayed();
+  }
+
+  getAvailableBalance() {
+    return this.availableBalanceLbl.getText().replace(/\r?\n|\r/, '');
+  }
+
+  isLogoPresent() {
+    return this.logoLbl.isDisplayed();
+  }
+
+  clickLogo() {
+    this.logoLbl.click();
+    switchToWindowByPattern(/The world.+/);
+  }
 }
 
 export default new HomePage();
