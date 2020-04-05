@@ -1,5 +1,6 @@
 /* global browser, $ */
 import Page from './page';
+import { ACCOUNT_TYPE } from '../constants/accountConstants';
 
 class HomePage extends Page {
   get pageLocator() { return $('//*[@main]'); }
@@ -27,7 +28,7 @@ class HomePage extends Page {
   switchToDemo() {
     this.accountBtn.click();
     this.switchToDemoBtn.click();
-    browser.waitUntil(() => this.accountTypeLbl.getText() === 'Demo');
+    browser.waitUntil(() => this.accountTypeLbl.getText() === ACCOUNT_TYPE.DEMO);
   }
 
   isSwitchToLiveVisible() {
