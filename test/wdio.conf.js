@@ -122,14 +122,9 @@ exports.config = {
   jasmineNodeOpts: {
     defaultTimeoutInterval: 20000,
     expectationResultHandler(passed, assertion) {
-      /**
-             * only take screenshot if assertion failed
-             */
-      if (passed) {
-        return;
+      if (!passed) {
+         browser.saveScreenshot(`assertionError_${assertion.error.message}.png`);
       }
-
-      browser.saveScreenshot(`assertionError_${assertion.error.message}.png`);
     },
   },
   //
