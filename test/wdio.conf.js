@@ -190,6 +190,11 @@ exports.config = {
   before() {
     // eslint-disable-next-line global-require
     require('@babel/register');
+    
+    browser.addCommand('switchToWindowByPattern', function (pattern, defaultPause = 1000) {
+      browser.pause(defaultPause);
+      browser.switchWindow(pattern);
+  })
   },
   /**
      * Runs before a WebdriverIO command gets executed.

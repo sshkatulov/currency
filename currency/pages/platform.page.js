@@ -1,6 +1,5 @@
 /* global browser, $ */
 import Page from '../../framework/elements/page';
-import { switchToWindowByPattern } from '../../framework/browser';
 
 class HomePage extends Page {
   get pageLocator() { return $('//*[@main]'); }
@@ -45,7 +44,7 @@ class HomePage extends Page {
 
   clickLogo() {
     this.logoLbl.click();
-    switchToWindowByPattern(/The world.+/);
+    browser.switchToWindowByPattern(/The world.+/);
   }
 }
 
