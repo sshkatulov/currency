@@ -1,4 +1,4 @@
-import Page from '../../framework/elements/page';
+import Page from './page';
 import HeaderForm from './forms/header.form';
 import LoginForm from './forms/login.form';
 

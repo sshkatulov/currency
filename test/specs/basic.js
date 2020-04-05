@@ -1,6 +1,6 @@
 /* global browser, describe, beforeAll, it, expect */
-import HomePage from '../../currency/pages/home.page';
-import PlatformPage from '../../currency/pages/platform.page';
+import HomePage from '../../pages/home.page';
+import PlatformPage from '../../pages/platform.page';
 import TestUser from '../testData/testUser';
 
 describe('check currency.com', () => {

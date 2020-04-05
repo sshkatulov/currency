@@ -1,5 +1,5 @@
 /* global browser, $ */
-import Page from '../../framework/elements/page';
+import Page from './page';
 
 class HomePage extends Page {
   get pageLocator() { return $('//*[@main]'); }
