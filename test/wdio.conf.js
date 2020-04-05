@@ -123,7 +123,7 @@ exports.config = {
     defaultTimeoutInterval: 20000,
     expectationResultHandler(passed, assertion) {
       if (!passed) {
-         browser.saveScreenshot(`assertionError_${assertion.error.message}.png`);
+        browser.saveScreenshot(`assertionError_${assertion.error.message}.png`);
       }
     },
   },
@@ -190,11 +190,11 @@ exports.config = {
   before() {
     // eslint-disable-next-line global-require
     require('@babel/register');
-    
-    browser.addCommand('switchToWindowByPattern', function (pattern, defaultPause = 1000) {
+
+    browser.addCommand('switchToWindowByPattern', (pattern, defaultPause = 1000) => {
       browser.pause(defaultPause);
       browser.switchWindow(pattern);
-  })
+    });
   },
   /**
      * Runs before a WebdriverIO command gets executed.

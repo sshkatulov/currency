@@ -2,6 +2,7 @@
 import HomePage from '../../pages/home.page';
 import PlatformPage from '../../pages/platform.page';
 import TestUser from '../testData/testUser';
+import { removeHttpProtocol } from '../../utils/stringUtils';
 
 describe('check currency.com', () => {
   beforeAll(() => {
@@ -26,7 +27,7 @@ describe('check currency.com', () => {
 
   it('logo redirects to home page', () => {
     PlatformPage.clickLogo();
-    const url = browser.getUrl().replace(/https?:\/\//, '').replace(/\//, '');
+    const url = removeHttpProtocol(browser.getUrl());
     expect(url).toBe('exchange.currency.com');
   });
 });
